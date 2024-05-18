@@ -1,0 +1,44 @@
+Library: Express, Typescript, Cors, Body-parser, mysql2
+
+Init a package.json file
+npm init -y
+
+Install production library:
+npm install express cors body-parser dotenv mysql2
+
+Install development library:
+npm install typescript ts-node nodemon eslint @types/node @types/express @types/cors --save-dev
+
+Setup run:
+Create Index.ts file
+In package.json {"scripts": {"dev": "nodemon Index.ts", ...}}
+tsc --init to create tsconfig.json file
+
+Typescript import export:
+- By ES module, ts file import another ts file using "import { a } from "b.js"
+- esModuleInterop: true in tsconfig.json allow to "import { a } from "b"
+
+
+
+Convention:
+- All file is PascalCase (FileName.ts)
+- CRUD function name:
+    + getOne(id) 
+    + getAll()
+    + getPage(page_index, page_size)
+    + createOne(record_without_id)
+    + updateOne(record_with_id)
+    + deleteOne(id)
+- API name = Table name = Router name
+    + "localhost:3000/Achievements"
+    + Table Achievements
+    + AchievementsRouter
+- API respond:
+    + res.status(code).json({ message, result });
+    + message (string) = Error or success
+    + result: ResultSetHeader
+    + code = 200: OK
+    + code = 201: Created
+    + code = 400: Bad request
+    + code = 404: Not found
+    + code = 500: Internal Server Error
