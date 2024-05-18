@@ -16,6 +16,10 @@ export const NotFound: MyResponse = {
     error: "Not found",
 };
 
+export const FieldNotValid: MyResponse = {
+    error: "Field not valid",
+};
+
 export const Delete: MyResponse = {
     message: "Deleted successfully",
 };

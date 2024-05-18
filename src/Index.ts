@@ -20,6 +20,7 @@ import { RoleRouter } from "./Role/route";
 import { LanguageRouter } from "./Language/route";
 import { SubjectRouter } from "./Subject/route";
 import { SubSubjectRouter } from "./SubSubject/route";
+import { TypeRouter } from "./Type/route";
 
 const routeObjects = [
     { path: "/Achievements", router: AchievementRouter },
@@ -32,6 +33,7 @@ const routeObjects = [
     { path: "/Language", router: LanguageRouter },
     { path: "/Subject", router: SubjectRouter },
     { path: "/SubSubject", router: SubSubjectRouter },
+    { path: "/Type", router: TypeRouter },
 ];
 
 routeObjects.forEach(({ path, router }) => {
