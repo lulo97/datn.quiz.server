@@ -34,6 +34,8 @@ export interface Question extends RowDataPacket {
     EducationLevelId: string;
     DifficultLevelId: string;
     LanguageId: string;
+    PointId: string;
+    PenaltyPointId: string;
 }
 
 export interface QuestionInformation extends RowDataPacket {
@@ -43,8 +45,6 @@ export interface QuestionInformation extends RowDataPacket {
     AudioUrl: string;
     Explaination: string;
     Time: number;
-    Point: number;
-    PenaltyPoint: number;
     CorrectUserCount: number;
     IncorrectUserCount: number;
     IsDeleted: boolean;
@@ -289,6 +289,14 @@ export interface ReportReason extends RowDataPacket {
     ReportReasonId: string;
     Name: string;
     Description: string;
+    CreatedAt: string;
+    UpdateAt: string;
+}
+
+export interface Point extends RowDataPacket {
+    PointId: string;
+    Value: number;
+    IsPenalty: boolean;
     CreatedAt: string;
     UpdateAt: string;
 }
