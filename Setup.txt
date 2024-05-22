@@ -10,8 +10,8 @@ Install development library:
 npm install typescript ts-node nodemon eslint @types/node @types/express @types/cors --save-dev
 
 Setup run:
-Create Index.ts file
-In package.json {"scripts": {"dev": "nodemon Index.ts", ...}}
+Create src/Index.ts file
+In package.json {"scripts": {"dev": "nodemon src/Index.ts", ...}}
 tsc --init to create tsconfig.json file
 
 Typescript import export:

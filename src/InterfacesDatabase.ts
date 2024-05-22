@@ -43,8 +43,7 @@ export interface QuestionInformation extends RowDataPacket {
     Content: string;
     ImageUrl: string;
     AudioUrl: string;
-    Explaination: string;
-    Time: number;
+    Explanation: string;
     CorrectUserCount: number;
     IncorrectUserCount: number;
     IsDeleted: boolean;
@@ -67,6 +66,7 @@ export interface QuizInformation extends RowDataPacket {
     ImageUrl: string;
     Attempts: number;
     IsPublic: boolean;
+    Time: number;
     IsDeleted: boolean;
     IsVerified: boolean;
     UserVerify: string;

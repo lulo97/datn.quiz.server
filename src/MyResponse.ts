@@ -6,6 +6,7 @@ export interface MyResponse {
     result?: ResultSetHeader;
     rows?: RowDataPacket[];
     fields?: FieldPacket[];
+    path?: string;
 }
 
 export const FieldNull: MyResponse = {
@@ -31,6 +32,13 @@ export const Update: MyResponse = {
 export const Create: MyResponse = {
     message: "Added successfully",
 };
+
+export function UploadSuccess(path: string): MyResponse {
+    return {
+        message: "File uploaded successfully!",
+        path: path,
+    }
+}
 
 export function CatchError(error: unknown): MyResponse {
     return {
