@@ -10,6 +10,7 @@ export const QuestionRouter = express.Router();
 
 QuestionRouter.get('/', ReadAll);
 QuestionRouter.get('/:QuestionId', ReadOne);
+
 QuestionRouter.post('/', CreateOne);
 QuestionRouter.put('/', UpdateOne);
 QuestionRouter.delete('/', DeleteOne);

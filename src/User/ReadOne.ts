@@ -1,19 +1,19 @@
 import { Request, Response } from "express";
 import { pool } from "../Connect";
-import { DifficultLevel } from "../InterfacesDatabase";
+import { User } from "../InterfacesDatabase";
 import { CatchError, NotFound } from "../MyResponse";
 import { Code } from "../Code";
 import { TABLE } from "./route";
 
-function sql(DifficultLevelId: string) {
-    return `SELECT * FROM ${TABLE} WHERE DifficultLevelId = '${DifficultLevelId}'`;
+function sql(UserId: string) {
+    return `SELECT * FROM ${TABLE} WHERE UserId = '${UserId}'`;
 }
 
 export const ReadOne = async (req: Request, res: Response) => {
-    const DifficultLevelId = req.params.DifficultLevelId;
+    const UserId = req.params.UserId;
     try {
-        const sql_query = sql(DifficultLevelId);
-        const [rows] = await pool.query<DifficultLevel[]>(sql_query);
+        const sql_query = sql(UserId);
+        const [rows] = await pool.query<User[]>(sql_query);
         if (rows.length === 0) {
             return res.status(Code.NotFound).json(NotFound);
         }

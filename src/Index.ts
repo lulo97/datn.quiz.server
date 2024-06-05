@@ -29,6 +29,12 @@ import { UploadFileRouter } from "./UploadFile/UploadFile";
 import { AnswerRouter } from "./Answer/route";
 import { QuestionRouter } from "./Question/route";
 import { QuestionInformationRouter } from "./QuestionInformation/route";
+import { UserRouter } from "./User/route";
+import { QuestionDetailRouter } from "./QuestionDetail/route";
+import { QuizRouter } from "./Quiz/route";
+import { QuizInformationRouter } from "./QuizInformation/route";
+import { QuizQuestionRouter } from "./QuizQuestion/route";
+import { TimeRouter } from "./Time/route";
 
 const routeObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -47,6 +53,12 @@ const routeObjects = [
     { path: "/Answer", router: AnswerRouter },
     { path: "/Question", router: QuestionRouter },
     { path: "/QuestionInformation", router: QuestionInformationRouter },
+    { path: "/User", router: UserRouter },
+    { path: "/QuestionDetail", router: QuestionDetailRouter },
+    { path: "/Quiz", router: QuizRouter },
+    { path: "/QuizInformation", router: QuizInformationRouter },
+    { path: "/QuizQuestion", router: QuizQuestionRouter },
+    { path: "/Time", router: TimeRouter }
 ];
 
 routeObjects.forEach(({ path, router }) => {

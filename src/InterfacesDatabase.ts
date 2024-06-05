@@ -2,6 +2,7 @@ import { RowDataPacket } from "mysql2";
 
 export interface User extends RowDataPacket {
     UserId: string;
+    ClerkId: string;
     Fullname: string;
     Username: string;
     Email: string;
@@ -72,7 +73,7 @@ export interface QuizInformation extends RowDataPacket {
     UserVerify: string;
     VerifiedAt: string;
     CreatedAt: string;
-    UpstringdAt: string;
+    UpdatedAt: string;
 }
 
 export interface Quiz extends RowDataPacket {
@@ -81,6 +82,8 @@ export interface Quiz extends RowDataPacket {
     QuizInformationId: string;
     EducationLevelId: string;
     SubjectId: string;
+    QuizTimeId: string;
+    QuestionTimeId: string;
 }
 
 export interface SubSubject extends RowDataPacket {
@@ -167,7 +170,7 @@ export interface Comment extends RowDataPacket {
     ParentId: string;
     CreateUserId: string;
     CreatedAt: string;
-    UpstringdAt: string;
+    UpdatedAt: string;
     Content: string;
     UpvoteCount: number;
     DownvoteCount: number;
@@ -299,4 +302,11 @@ export interface Point extends RowDataPacket {
     IsPenalty: boolean;
     CreatedAt: string;
     UpdateAt: string;
+}
+
+export interface Time extends RowDataPacket {
+    TimeId: string;
+    Value: number;
+    CreatedAt: string;
+    UpdatedAt: string;
 }

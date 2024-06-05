@@ -18,8 +18,6 @@ Typescript import export:
 - By ES module, ts file import another ts file using "import { a } from "b.js"
 - esModuleInterop: true in tsconfig.json allow to "import { a } from "b"
 
-
-
 Convention:
 - All file is PascalCase (FileName.ts)
 - CRUD function name:
