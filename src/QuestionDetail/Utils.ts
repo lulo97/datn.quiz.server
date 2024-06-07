@@ -145,15 +145,15 @@ SELECT JSON_OBJECT(
 `
 
 export const leftJoin = `
-LEFT JOIN QuestionInformation qi ON q.QuestionInformationId = qi.QuestionInformationId
-LEFT JOIN Type t ON q.TypeId = t.TypeId
-LEFT JOIN EducationLevel el ON q.EducationLevelId = el.EducationLevelId
-LEFT JOIN DifficultLevel dl ON q.DifficultLevelId = dl.DifficultLevelId
-LEFT JOIN Language l ON q.LanguageId = l.LanguageId
-LEFT JOIN Point p ON q.PointId = p.PointId
-LEFT JOIN Point pp ON q.PenaltyPointId = pp.PointId
-LEFT JOIN SubSubject ss ON q.SubSubjectId = ss.SubSubjectId
-LEFT JOIN Subject s ON ss.SubjectId = s.SubjectId
+    LEFT JOIN QuestionInformation qi ON q.QuestionInformationId = qi.QuestionInformationId
+    LEFT JOIN Type t ON q.TypeId = t.TypeId
+    LEFT JOIN EducationLevel el ON q.EducationLevelId = el.EducationLevelId
+    LEFT JOIN DifficultLevel dl ON q.DifficultLevelId = dl.DifficultLevelId
+    LEFT JOIN Language l ON q.LanguageId = l.LanguageId
+    LEFT JOIN Point p ON q.PointId = p.PointId
+    LEFT JOIN Point pp ON q.PenaltyPointId = pp.PointId
+    LEFT JOIN SubSubject ss ON q.SubSubjectId = ss.SubSubjectId
+    LEFT JOIN Subject s ON ss.SubjectId = s.SubjectId
 `
 
 export function ReadAllSql() {

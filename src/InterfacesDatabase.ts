@@ -82,8 +82,7 @@ export interface Quiz extends RowDataPacket {
     QuizInformationId: string;
     EducationLevelId: string;
     SubjectId: string;
-    QuizTimeId: string;
-    QuestionTimeId: string;
+    TimeId: string;
 }
 
 export interface SubSubject extends RowDataPacket {

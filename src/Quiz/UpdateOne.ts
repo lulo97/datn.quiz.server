@@ -12,8 +12,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
         UserId,
         SubjectId,
         EducationLevelId,
-        QuestionTimeId,
-        QuizTimeId
+        TimeId
     } = req.body;
 
     if (!QuizId) {
@@ -24,12 +23,10 @@ export const UpdateOne = async (req: Request, res: Response) => {
         UPDATE ${TABLE} 
         SET 
             QuizInformationId = ?, 
-            UserId = ?, 
-            TypeId = ?, 
+            UserId = ?,
             SubjectId = ?, 
             EducationLevelId = ?, 
-            QuestionTimeId = ?,
-            QuizTimeId = ?
+            TimeId = ?
         WHERE 
             QuizId = ?`;
 
@@ -38,8 +35,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
         UserId,
         SubjectId,
         EducationLevelId,
-        QuestionTimeId,
-        QuizTimeId,
+        TimeId,
         QuizId,
     ];
 

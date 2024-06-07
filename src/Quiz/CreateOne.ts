@@ -12,8 +12,7 @@ export const CreateOne = async (req: Request, res: Response) => {
         UserId,
         SubjectId,
         EducationLevelId,
-        QuestionTimeId,
-        QuizTimeId
+        TimeId
     } = req.body;
 
     if (!QuizId) {
@@ -28,9 +27,8 @@ export const CreateOne = async (req: Request, res: Response) => {
                 UserId,
                 SubjectId,
                 EducationLevelId,
-                QuestionTimeId,
-                QuizTimeId
-            ) VALUES (?, ?, ?, ?, ?, ?, ?);`;
+                TimeId
+            ) VALUES (?, ?, ?, ?, ?, ?);`;
 
         const params = [
             QuizId,
@@ -38,8 +36,7 @@ export const CreateOne = async (req: Request, res: Response) => {
             UserId,
             SubjectId,
             EducationLevelId,
-            QuestionTimeId,
-            QuizTimeId
+            TimeId
         ];
 
         const [result] = await pool.query<ResultSetHeader>(sql, params);

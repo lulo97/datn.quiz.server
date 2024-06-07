@@ -15,14 +15,14 @@ function sql(SubjectId: string) {
         Question q
     ${leftJoin}
     WHERE
-        q.SubSubjectId IN (SELECT SubSubjectId FROM subsubjects);`
+        q.SubSubjectId IN (SELECT SubSubjectId FROM subsubjects);`;
 }
 
 export const ReadAllBySubject = async (req: Request, res: Response) => {
     const SubjectId = req.params.SubjectId;
     try {
         const [rows, fields] = await pool.query<QuestionDetail[]>(sql(SubjectId));
-        res.status(Code.OK).json(rows.map(ele => ele.data));
+        res.status(Code.OK).json(rows.map((ele) => ele.data));
     } catch (error) {
         console.log(error);
         res.status(Code.InternalServerError).json(CatchError(error));
