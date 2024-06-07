@@ -48,7 +48,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
         LanguageId,
         PointId,
         PenaltyPointId,
-        QuestionId
+        QuestionId,
     ];
 
     try {

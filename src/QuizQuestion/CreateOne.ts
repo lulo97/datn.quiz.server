@@ -6,11 +6,7 @@ import { Code } from "../Code";
 import { TABLE } from "./route";
 
 export const CreateOne = async (req: Request, res: Response) => {
-    const {
-        QuizQuestionId,
-        QuizId,
-        QuestionId
-    } = req.body;
+    const { QuizQuestionId, QuizId, QuestionId } = req.body;
 
     if (!QuizQuestionId) {
         return res.status(Code.BadRequest).json(FieldNull);
@@ -24,16 +20,12 @@ export const CreateOne = async (req: Request, res: Response) => {
                 QuestionId
             ) VALUES (?, ?, ?);`;
 
-        const params = [
-            QuizQuestionId,
-            QuizId,
-            QuestionId
-        ];
+        const params = [QuizQuestionId, QuizId, QuestionId];
 
         const [result] = await pool.query<ResultSetHeader>(sql, params);
-        res.status(Code.Created).json(Create);
+        return res.status(Code.Created).json(Create);
     } catch (error) {
         console.log(error);
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

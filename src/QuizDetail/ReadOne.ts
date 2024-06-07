@@ -5,7 +5,7 @@ import { Code } from "../Code";
 import { MySQLFunctionReturn, QuizDetail } from "./Utils";
 
 function sql(QuizId: string) {
-    return `SELECT getOneQuizDetail('${QuizId}') as data;`
+    return `SELECT getOneQuizDetail('${QuizId}') as data;`;
 }
 
 export const ReadOne = async (req: Request, res: Response) => {
@@ -16,9 +16,9 @@ export const ReadOne = async (req: Request, res: Response) => {
         if (rows.length === 0) {
             return res.status(Code.NotFound).json(NotFound);
         }
-        res.status(Code.OK).json(rows[0].data);
+        return res.status(Code.OK).json(rows[0].data);
     } catch (error) {
         console.log(error);
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

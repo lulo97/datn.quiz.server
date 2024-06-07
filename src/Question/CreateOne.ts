@@ -52,9 +52,9 @@ export const CreateOne = async (req: Request, res: Response) => {
         ];
 
         const [result] = await pool.query<ResultSetHeader>(sql, params);
-        res.status(Code.Created).json(Create);
+        return res.status(Code.Created).json(Create);
     } catch (error) {
         console.log(error);
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

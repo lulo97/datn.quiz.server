@@ -12,10 +12,10 @@ function sql() {
 export const ReadAll = async (req: Request, res: Response) => {
     try {
         const [rows, fields] = await pool.query<Language[]>(sql());
-        res.status(Code.OK).json(rows);
+        return res.status(Code.OK).json(rows);
     } catch (error) {
         console.error(error);
-        console.log(error)
-res.status(Code.InternalServerError).json(CatchError(error));
+        console.log(error);
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

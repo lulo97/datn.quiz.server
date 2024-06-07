@@ -8,7 +8,7 @@ export interface User extends RowDataPacket {
     Email: string;
     Biography: string;
     ImageUrl: string;
-    CreateAt: string;
+    CreatedAt: string;
 }
 
 export interface Achievements extends RowDataPacket {
@@ -49,8 +49,8 @@ export interface QuestionInformation extends RowDataPacket {
     IncorrectUserCount: number;
     IsDeleted: boolean;
     IsAllowPenalty: boolean;
-    CreateAt: string;
-    UpdateAt: string;
+    CreatedAt: string;
+    UpdatedAt: string;
 }
 
 export interface Answer extends RowDataPacket {
@@ -91,7 +91,7 @@ export interface SubSubject extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface QuizQuestion extends RowDataPacket {
@@ -105,7 +105,7 @@ export interface Subject extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface EducationLevel extends RowDataPacket {
@@ -113,7 +113,7 @@ export interface EducationLevel extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface Language extends RowDataPacket {
@@ -121,7 +121,7 @@ export interface Language extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface Type extends RowDataPacket {
@@ -129,7 +129,7 @@ export interface Type extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface DifficultLevel extends RowDataPacket {
@@ -137,7 +137,7 @@ export interface DifficultLevel extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface Play extends RowDataPacket {
@@ -148,7 +148,7 @@ export interface Play extends RowDataPacket {
     StartTime: string;
     EndTime: string;
     Score: number;
-    CreateAt: string;
+    CreatedAt: string;
 }
 
 export interface SelectedAnswer extends RowDataPacket {
@@ -215,7 +215,7 @@ export interface Room extends RowDataPacket {
     StartTime: string;
     EndTime: string;
     Capacity: number;
-    CreateAt: string;
+    CreatedAt: string;
 }
 
 export interface UserInRoom extends RowDataPacket {
@@ -234,7 +234,7 @@ export interface Role extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface UserRole extends RowDataPacket {
@@ -248,7 +248,7 @@ export interface Permission extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface RolePermission extends RowDataPacket {
@@ -264,7 +264,7 @@ export interface Rating extends RowDataPacket {
     Score: number;
     Content: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface Report extends RowDataPacket {
@@ -284,7 +284,7 @@ export interface ReportTarget extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface ReportReason extends RowDataPacket {
@@ -292,7 +292,7 @@ export interface ReportReason extends RowDataPacket {
     Name: string;
     Description: string;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface Point extends RowDataPacket {
@@ -300,7 +300,7 @@ export interface Point extends RowDataPacket {
     Value: number;
     IsPenalty: boolean;
     CreatedAt: string;
-    UpdateAt: string;
+    UpdatedAt: string;
 }
 
 export interface Time extends RowDataPacket {

@@ -19,13 +19,13 @@ function sql(SubjectId: string) {
 export const ReadBySubject = async (req: Request, res: Response) => {
     const { SubjectId } = req.params;
     if (!SubjectId) {
-        res.status(Code.BadRequest).json(FieldNull);
+        return res.status(Code.BadRequest).json(FieldNull);
     }
     try {
         const [rows] = await pool.query<SubSubject[]>(sql(SubjectId));
-        res.status(Code.OK).json(rows);
+        return res.status(Code.OK).json(rows);
     } catch (error) {
         console.error(error);
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

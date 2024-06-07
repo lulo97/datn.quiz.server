@@ -1,9 +1,5 @@
 import { RowDataPacket } from "mysql2";
-import {
-    EducationLevel,
-    Subject,
-    Time,
-} from "../InterfacesDatabase";
+import { EducationLevel, Subject, Time } from "../InterfacesDatabase";
 import { QuestionDetail } from "../QuestionDetail/Utils";
 
 export interface QuizDetail extends RowDataPacket {
@@ -19,6 +15,14 @@ export interface QuizDetail extends RowDataPacket {
     IsPublic: boolean;
     EducationLevel: EducationLevel | null;
     Subject: Subject | null;
+    //
+    Attempts: number;
+    IsDeleted: boolean;
+    IsVerified: boolean;
+    UserVerify: string | null;
+    VerifiedAt: string | null;
+    CreatedAt: string | null;
+    UpdatedAt: string | null;
 }
 
 export interface MySQLFunctionReturn extends RowDataPacket {

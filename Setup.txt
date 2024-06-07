@@ -32,7 +32,7 @@ Convention:
     + Table Achievements
     + AchievementsRouter
 - API respond:
-    + res.status(code).json({ message, result });
+    + return res.status(code).json({ message, result });
     + message (string) = Error or success
     + result: ResultSetHeader
     + code = 200: OK

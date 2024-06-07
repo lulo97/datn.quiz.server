@@ -20,10 +20,10 @@ export const DeleteOne = async (req: Request, res: Response) => {
         if (result.affectedRows === 0) {
             return res.status(Code.NotFound).json(NotFound);
         }
-        res.status(Code.OK).json(Delete);
+        return res.status(Code.OK).json(Delete);
     } catch (error) {
         console.error(error);
         console.log(error);
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

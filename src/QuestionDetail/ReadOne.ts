@@ -16,9 +16,9 @@ export const ReadOne = async (req: Request, res: Response) => {
         if (rows.length === 0) {
             return res.status(Code.NotFound).json(NotFound);
         }
-        res.status(Code.OK).json(rows[0].data);
+        return res.status(Code.OK).json(rows[0].data);
     } catch (error) {
         console.log(error);
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

@@ -5,11 +5,7 @@ import { Code } from "../Code";
 import { CatchError, FieldNull, NotFound, Update } from "../MyResponse";
 import { TABLE } from "./route";
 
-function sql(
-    EducationLevelId: string,
-    Name: string,
-    Description: string,
-) {
+function sql(EducationLevelId: string, Name: string, Description: string) {
     return `UPDATE ${TABLE} SET Name = '${Name}', Description = '${Description}' WHERE EducationLevelId = '${EducationLevelId}'`;
 }
 
@@ -24,9 +20,9 @@ export const UpdateOne = async (req: Request, res: Response) => {
         if (result.affectedRows === 0) {
             return res.status(Code.NotFound).json(NotFound);
         }
-        res.status(Code.OK).json(Update);
+        return res.status(Code.OK).json(Update);
     } catch (error) {
-        console.log(error)
-res.status(Code.InternalServerError).json(CatchError(error));
+        console.log(error);
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

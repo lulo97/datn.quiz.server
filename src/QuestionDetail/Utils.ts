@@ -20,7 +20,7 @@ export interface QuestionDetail extends RowDataPacket {
     ImageUrl: string | null;
     AudioFile: File | null;
     AudioUrl: string | null;
-    ExplainContent: string | null;
+    Explanation: string | null;
     ExplainAllow: boolean;
     Type: Type | null;
     DifficultLevel: DifficultLevel | null;
@@ -31,6 +31,13 @@ export interface QuestionDetail extends RowDataPacket {
     PenaltyPoint: Point | null;
     PenaltyAllow: boolean;
     Point: Point | null;
+    //
+    Explanation: string | null;
+    CorrectUserCount: number;
+    IncorrectUserCount: number;
+    IsDeleted: boolean;
+    CreatedAt: string | null;
+    UpdatedAt: string | null;
 }
 
 export interface MySQLFunctionReturn extends RowDataPacket {

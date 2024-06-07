@@ -14,7 +14,7 @@ function getQueries() {
         `SELECT QuestionInformationId FROM Question WHERE QuestionId = ?`,
         `DELETE FROM QuestionInformation WHERE QuestionInformationId = ?`,
         `DELETE FROM Question WHERE QuestionId = ?`,
-        `DELETE FROM Answer WHERE QuestionId = ?`
+        `DELETE FROM Answer WHERE QuestionId = ?`,
     ];
 }
 
@@ -32,7 +32,10 @@ export const DeleteOne = async (req: Request, res: Response) => {
         const queries = getQueries();
 
         // Step 1: Retrieve the QuestionInformationId
-        const [rows] = await connection.query<QuestionInformationRow[]>(queries[0], [QuestionId]);
+        const [rows] = await connection.query<QuestionInformationRow[]>(
+            queries[0],
+            [QuestionId]
+        );
         if (rows.length === 0) {
             await connection.rollback();
             return res.status(Code.NotFound).json(NotFound);
@@ -49,12 +52,11 @@ export const DeleteOne = async (req: Request, res: Response) => {
         await connection.query(queries[3], [QuestionId]);
 
         await connection.commit();
-        res.status(Code.OK).json(Delete);
-
+        return res.status(Code.OK).json(Delete);
     } catch (error) {
         await connection.rollback();
         console.log(error);
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     } finally {
         connection.release();
     }

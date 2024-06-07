@@ -12,7 +12,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
         UserId,
         SubjectId,
         EducationLevelId,
-        TimeId
+        TimeId,
     } = req.body;
 
     if (!QuizId) {

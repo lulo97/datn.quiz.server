@@ -12,8 +12,8 @@ UploadFileRouter.post("/", UploadMiddleware, (req: Request, res: Response) => {
             return res.status(Code.BadRequest).json(FieldNotValid);
         }
         const relative_path = path.relative(process.cwd(), req.file.path);
-        res.status(Code.OK).json(UploadSuccess(relative_path));
+        return res.status(Code.OK).json(UploadSuccess(relative_path));
     } catch (error) {
-        res.status(Code.InternalServerError).json(CatchError(error));
+        return res.status(Code.InternalServerError).json(CatchError(error));
     }
 });
