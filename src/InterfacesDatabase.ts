@@ -146,13 +146,13 @@ export interface Play extends RowDataPacket {
     QuizId: string;
     RoomId: string;
     StartTime: string;
-    EndTime: string;
+    SubmitTime: string;
     Score: number;
     CreatedAt: string;
 }
 
 export interface SelectedAnswer extends RowDataPacket {
-    SelectedAnswersId: string;
+    SelectedAnswerId: string;
     PlayId: string;
     AnswerId: string;
 }

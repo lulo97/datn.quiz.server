@@ -36,6 +36,8 @@ import { QuizQuestionRouter } from "./QuizQuestion/route";
 import { TimeRouter } from "./Time/route";
 import { QuestionDetailRouter } from "./QuestionDetail/route";
 import { QuizDetailRouter } from "./QuizDetail/route";
+import { PlayRouter } from "./Play/route";
+import { SelectedAnswerRouter } from "./SelectedAnswer/route";
 
 const routeObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -60,7 +62,9 @@ const routeObjects = [
     { path: "/QuizInformation", router: QuizInformationRouter },
     { path: "/QuizQuestion", router: QuizQuestionRouter },
     { path: "/Time", router: TimeRouter },
-    { path: "/QuizDetail", router: QuizDetailRouter }
+    { path: "/QuizDetail", router: QuizDetailRouter },
+    { path: "/Play", router: PlayRouter },
+    { path: "/SelectedAnswer", router: SelectedAnswerRouter }
 ];
 
 routeObjects.forEach(({ path, router }) => {
