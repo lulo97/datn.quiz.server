@@ -32,7 +32,6 @@ export interface QuestionDetail extends RowDataPacket {
     PenaltyAllow: boolean;
     Point: Point | null;
     //
-    Explanation: string | null;
     CorrectUserCount: number;
     IncorrectUserCount: number;
     IsDeleted: boolean;

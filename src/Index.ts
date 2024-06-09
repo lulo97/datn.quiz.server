@@ -1,17 +1,23 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import path from "path"
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(
+    cors({
+        origin: "*", // Wildcard is NOT for Production
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        credentials: true,
+    })
+);
 app.use(bodyParser.json());
 //To access static file directly
 app.use("/public", express.static(path.join(process.cwd(), "public")));
 
-app.get("/", (req, res) => res.send("Hello world!"))
+app.get("/", (req, res) => res.send("Hello world!"));
 
 import { AchievementRouter } from "./Achievements/route";
 import { DifficultLevelRouter } from "./DifficultLevel/route";
@@ -38,6 +44,11 @@ import { QuestionDetailRouter } from "./QuestionDetail/route";
 import { QuizDetailRouter } from "./QuizDetail/route";
 import { PlayRouter } from "./Play/route";
 import { SelectedAnswerRouter } from "./SelectedAnswer/route";
+import { PlayDetailRouter } from "./PlayDetail/route";
+import { CommentDetailRouter } from "./CommentDetail/route";
+import { CommentRouter } from "./Comment/route";
+import { UpvoteCommentRouter } from "./UpvoteComment/route";
+import { DownvoteCommentRouter } from "./Downvotecomment/route";
 
 const routeObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -64,7 +75,12 @@ const routeObjects = [
     { path: "/Time", router: TimeRouter },
     { path: "/QuizDetail", router: QuizDetailRouter },
     { path: "/Play", router: PlayRouter },
-    { path: "/SelectedAnswer", router: SelectedAnswerRouter }
+    { path: "/SelectedAnswer", router: SelectedAnswerRouter },
+    { path: "/PlayDetail", router: PlayDetailRouter },
+    { path: "/CommentDetail", router: CommentDetailRouter },
+    { path: "/Comment", router: CommentRouter },
+    { path: "/UpvoteComment", router: UpvoteCommentRouter },
+    { path: "/DownvoteComment", router: DownvoteCommentRouter },
 ];
 
 routeObjects.forEach(({ path, router }) => {
