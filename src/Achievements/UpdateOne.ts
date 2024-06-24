@@ -11,7 +11,7 @@ function sql(
     Description: string,
     ImageUrl: string
 ) {
-    return `UPDATE ${TABLE} SET Name = '${Name}', Description = '${Description}', ImageUrl = '${ImageUrl}' WHERE AchievementId = '${AchievementId}'`;
+    return `UPDATE ${TABLE} SET Name = '${Name}', Description = '${Description? Description: "NULL"}', ImageUrl = '${ImageUrl}' WHERE AchievementId = '${AchievementId}'`;
 }
 
 export const UpdateOne = async (req: Request, res: Response) => {

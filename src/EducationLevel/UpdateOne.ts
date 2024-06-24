@@ -6,7 +6,9 @@ import { CatchError, FieldNull, NotFound, Update } from "../MyResponse";
 import { TABLE } from "./route";
 
 function sql(EducationLevelId: string, Name: string, Description: string) {
-    return `UPDATE ${TABLE} SET Name = '${Name}', Description = '${Description}' WHERE EducationLevelId = '${EducationLevelId}'`;
+    return `UPDATE ${TABLE} SET Name = '${Name}', Description = '${
+        Description ? Description : "NULL"
+    }' WHERE EducationLevelId = '${EducationLevelId}'`;
 }
 
 export const UpdateOne = async (req: Request, res: Response) => {

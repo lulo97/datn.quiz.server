@@ -13,16 +13,24 @@ function sql(SubjectId: string) {
     JOIN 
         subject AS subj ON sub.SubjectId = subj.SubjectId
     WHERE 
-        subj.SubjectId = '${SubjectId}'`;
+        subj.SubjectId = '${SubjectId}';
+    `;
 }
 
-export const ReadBySubject = async (req: Request, res: Response) => {
+export const ReadBySubject = async (
+    req: Request,
+    res: Response
+) => {
     const { SubjectId } = req.params;
+    console.log(SubjectId)
     if (!SubjectId) {
         return res.status(Code.BadRequest).json(FieldNull);
     }
     try {
-        const [rows] = await pool.query<SubSubject[]>(sql(SubjectId));
+        console.log(sql(SubjectId));
+        const [rows] = await pool.query<SubSubject[]>(
+            sql(SubjectId)
+        );
         return res.status(Code.OK).json(rows);
     } catch (error) {
         console.error(error);

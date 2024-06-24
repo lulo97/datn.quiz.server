@@ -15,7 +15,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
         CorrectUserCount,
         IncorrectUserCount,
         IsDeleted,
-        IsAllowPenalty,
+        AllowPenalty,
     } = req.body;
 
     if (!QuestionInformationId) {
@@ -32,7 +32,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
             CorrectUserCount = ?,
             IncorrectUserCount = ?,
             IsDeleted = ?,
-            IsAllowPenalty = ?
+            AllowPenalty = ?
         WHERE 
             QuestionInformationId = ?`;
 
@@ -44,7 +44,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
         CorrectUserCount,
         IncorrectUserCount,
         IsDeleted,
-        IsAllowPenalty,
+        AllowPenalty,
         QuestionInformationId,
     ];
 

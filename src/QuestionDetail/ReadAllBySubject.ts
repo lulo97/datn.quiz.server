@@ -1,12 +1,8 @@
 import { Request, Response } from "express";
 import { pool } from "../Connect";
 import { Code } from "../Code";
-import { CatchError, NotFound } from "../MyResponse";
-import { MySQLFunctionReturn, QuestionDetail } from "./Utils";
-
-// function sql(SubjectId: string) {
-//     return `SELECT getAllQuestionDetailBySubject('${SubjectId}') as data;`;
-// }
+import { CatchError } from "../MyResponse";
+import { QuestionDetail } from "./Utils";
 
 export const ReadAllBySubject = async (req: Request, res: Response) => {
     const SubjectId = req.params.SubjectId;

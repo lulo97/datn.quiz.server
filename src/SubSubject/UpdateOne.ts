@@ -7,20 +7,28 @@ import { TABLE } from "./route";
 
 function sql(
     SubSubjectId: string,
+    EducationLevelId: string,
     Name: string,
     Description: string,
     SubjectId: string
 ) {
-    return `UPDATE ${TABLE} SET Name = '${Name}', Description = '${Description}', SubjectId = '${SubjectId}' WHERE SubSubjectId = '${SubSubjectId}'`;
+    return `UPDATE ${TABLE} SET Name = '${Name}', Description = '${Description? Description: "NULL"}', SubjectId = '${SubjectId}', EducationLevelId = '${EducationLevelId}' WHERE SubSubjectId = '${SubSubjectId}'`;
 }
 
 export const UpdateOne = async (req: Request, res: Response) => {
-    const { SubSubjectId, Name, Description, SubjectId } = req.body;
+    const { SubSubjectId, EducationLevelId, Name, Description, SubjectId } =
+        req.body;
     if (!SubSubjectId || !Name) {
         return res.status(Code.BadRequest).json(FieldNull);
     }
     try {
-        const sql_query = sql(SubSubjectId, Name, Description, SubjectId);
+        const sql_query = sql(
+            SubSubjectId,
+            EducationLevelId,
+            Name,
+            Description,
+            SubjectId
+        );
         const [result] = await pool.query<ResultSetHeader>(sql_query);
         if (result.affectedRows === 0) {
             return res.status(Code.NotFound).json(NotFound);

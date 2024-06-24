@@ -6,6 +6,8 @@ import { Code } from "../Code";
 
 export const UploadFileRouter: Router = express.Router();
 
+UploadFileRouter.get("/", (req, res) => res.json("Upload"))
+
 UploadFileRouter.post("/", UploadMiddleware, (req: Request, res: Response) => {
     try {
         if (!req.file) {

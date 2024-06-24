@@ -6,7 +6,9 @@ import { Code } from "../Code";
 import { TABLE } from "./route";
 
 function sql(Name: string, Description: string) {
-    return `INSERT INTO ${TABLE} (Name, Description) VALUES ('${Name}', '${Description}')`;
+    return `INSERT INTO ${TABLE} (Name, Description) VALUES ('${Name}', '${
+        Description ? Description : "NULL"
+    }')`;
 }
 
 export const CreateOne = async (req: Request, res: Response) => {

@@ -48,7 +48,7 @@ export interface QuestionInformation extends RowDataPacket {
     CorrectUserCount: number;
     IncorrectUserCount: number;
     IsDeleted: boolean;
-    IsAllowPenalty: boolean;
+    AllowPenalty: boolean;
     CreatedAt: string;
     UpdatedAt: string;
 }
@@ -88,6 +88,7 @@ export interface Quiz extends RowDataPacket {
 export interface SubSubject extends RowDataPacket {
     SubSubjectId: string;
     SubjectId: string;
+    EducationLevelId: string;
     Name: string;
     Description: string;
     CreatedAt: string;
@@ -211,10 +212,12 @@ export interface Room extends RowDataPacket {
     QuizId: string;
     UserId: string;
     Name: string;
-    StartTime: string;
-    EndTime: string;
+    StartTime: number;
+    StartQuizTime: number;
+    EndTime: number;
     Capacity: number;
     CreatedAt: string;
+    Password: string | null;
 }
 
 export interface UserInRoom extends RowDataPacket {
