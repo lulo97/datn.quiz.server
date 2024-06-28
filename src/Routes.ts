@@ -35,6 +35,8 @@ import { CreateQuestionRouter } from "./CreateQuestion/route";
 import { AdminRouter } from "./Admin/route";
 import { CreateQuizRouter } from "./CreateQuiz/route";
 import { UpdateQuestionRouter } from "./UpdateQuestion/route";
+import { CreatePlayRouter } from "./CreatePlay/route";
+import { RankingRouter } from "./Raking/route";
 
 export const RouteObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -70,4 +72,6 @@ export const RouteObjects = [
     { path: "/UpdateQuestion", router: UpdateQuestionRouter },
     { path: "/Admin", router: AdminRouter },
     { path: "/CreateQuiz", router: CreateQuizRouter },
+    { path: "/CreatePlay", router: CreatePlayRouter },
+    { path: "/Ranking", router: RankingRouter },
 ];

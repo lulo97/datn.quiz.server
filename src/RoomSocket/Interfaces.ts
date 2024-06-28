@@ -1,38 +1,28 @@
-import { Room, User } from "../InterfacesDatabase";
-import { QuizDetail } from "../QuizDetail/Utils";
+import { User } from "../InterfacesDatabase";
+import { RoomDetail } from "../RoomDetail/Utils";
 
-export interface UserResponse {
+export interface UserData {
+    User: User;
+    StartTimeJoin: number;
+    EndTimeJoin: number;
+}
+
+export interface RoomSocketData {
+    Room: RoomDetail;
+    UserDatas: UserData[];
+    Messages: Message[];
+}
+
+export interface Response {
     QuestionId: string;
     SelectedAnswers: string[];
 }
 
-export interface PlayData {
-    QuestionIdx: 0;
-    CurrentTime: number;
-    RoomId: null;
-    User: User;
-    StartTime: number; //Time user enter room
-    EndTime: number; //Time user out room
-    Response: UserResponse[];
-}
-
-export interface RoomDetail extends Omit<Room, "QuizId" | "UserId"> {
-    Quiz: QuizDetail;
-    User: User;
-}
-
-export interface IRoomSocketData {
-    Room: RoomDetail | null;
-    PlayDatas: PlayData[];
-}
-
-export enum ActionType {
-    SetRoom = "SetRoom",
-    AddUser = "AddUser",
-    SendRoomSocketData = "SendRoomSocketData"
-}
-
-export interface Action {
-    type: ActionType;
-    payload: any;
+export interface Message {
+    UserId: string;
+    RoomId: string;
+    QuestionIdx: number;
+    Response: Response[];
+    StartTimePlay: number;
+    EndTimePlay: number;  
 }

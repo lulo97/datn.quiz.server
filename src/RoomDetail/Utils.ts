@@ -2,7 +2,7 @@ import { RowDataPacket } from "mysql2";
 import { Room, User } from "../InterfacesDatabase";
 import { QuizDetail } from "../QuizDetail/Utils";
 
-interface RoomDetail extends Omit<Room, "QuizId" | "UserId"> {
+export interface RoomDetail extends Omit<Room, "QuizId" | "UserId"> {
     Quiz: QuizDetail;
     User: User;
 }

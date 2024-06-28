@@ -224,8 +224,8 @@ export interface UserInRoom extends RowDataPacket {
     UserInRoom: string;
     UserId: string;
     RoomId: string;
-    StartTime: string;
-    EndTime: string;
+    StartTime: number;
+    EndTime: number;
     TotalQuestionViewed: number;
     CurrentQuestionIndex: number;
     CurrentScore: number;
