@@ -3,10 +3,15 @@ import { pool } from "../Connect";
 import { ResultSetHeader } from "mysql2/promise";
 import { Code } from "../Code";
 import { CatchError, Delete, FieldNull, NotFound } from "../MyResponse";
-import { TABLE } from "./route";
+import { TABLE as PermissionTable } from "./route";
+import { TABLE as RolePermissionTable } from "../RolePermission/route";
 
-function sql(PermissionId: string) {
-    return `DELETE FROM ${TABLE} WHERE PermissionId = '${PermissionId}'`;
+function deletePermissionSQL(PermissionId: string) {
+    return `DELETE FROM ${PermissionTable} WHERE PermissionId = '${PermissionId}'`;
+}
+
+function deleteRolePermissionSQL(PermissionId: string) {
+    return `DELETE FROM ${RolePermissionTable} WHERE PermissionId = '${PermissionId}'`;
 }
 
 export const DeleteOne = async (req: Request, res: Response) => {
@@ -14,16 +19,24 @@ export const DeleteOne = async (req: Request, res: Response) => {
     if (!PermissionId) {
         return res.status(Code.BadRequest).json(FieldNull);
     }
+
+    const connection = await pool.getConnection();
     try {
-        const sql_query = sql(PermissionId);
-        const [result] = await pool.query<ResultSetHeader>(sql_query);
-        if (result.affectedRows === 0) {
-            return res.status(Code.NotFound).json(NotFound);
-        }
+        await connection.beginTransaction();
+
+        const sqlPermissionQuery = deletePermissionSQL(PermissionId);
+        await connection.query<ResultSetHeader>(sqlPermissionQuery);
+
+        const sqlRolePermissionQuery = deleteRolePermissionSQL(PermissionId);
+        await connection.query<ResultSetHeader>(sqlRolePermissionQuery);
+
+        await connection.commit();
+        connection.release();
         return res.status(Code.OK).json(Delete);
     } catch (error) {
+        await connection.rollback();
+        connection.release();
         console.error(error);
-        console.log(error);
         return res.status(Code.InternalServerError).json(CatchError(error));
     }
 };

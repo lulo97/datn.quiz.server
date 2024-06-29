@@ -37,6 +37,9 @@ import { CreateQuizRouter } from "./CreateQuiz/route";
 import { UpdateQuestionRouter } from "./UpdateQuestion/route";
 import { CreatePlayRouter } from "./CreatePlay/route";
 import { RankingRouter } from "./Raking/route";
+import { LikeRouter } from "./Like/route";
+import { RatingRouter } from "./Rating/route";
+import { UserRoleRouter } from "./UserRole/route";
 
 export const RouteObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -74,4 +77,7 @@ export const RouteObjects = [
     { path: "/CreateQuiz", router: CreateQuizRouter },
     { path: "/CreatePlay", router: CreatePlayRouter },
     { path: "/Ranking", router: RankingRouter },
+    { path: "/Like", router: LikeRouter },
+    { path: "/Rating", router: RatingRouter },
+    { path: "/UserRole", router: UserRoleRouter },
 ];

@@ -6,7 +6,7 @@ import { CatchError } from "../MyResponse";
 import { TABLE } from "./route";
 
 function sql() {
-    return `SELECT * FROM ${TABLE}`;
+    return `SELECT * FROM ${TABLE} WHERE Name != 'Quản trị viên'`;
 }
 
 export const ReadAll = async (req: Request, res: Response) => {
