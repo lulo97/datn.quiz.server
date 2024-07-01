@@ -67,10 +67,8 @@ export interface QuizInformation extends RowDataPacket {
     ImageUrl: string;
     Attempts: number;
     IsPublic: boolean;
-    Time: number;
     IsDeleted: boolean;
-    IsVerified: boolean;
-    UserVerify: string;
+    UserVertify: string;
     VerifiedAt: string;
     CreatedAt: string;
     UpdatedAt: string;

@@ -14,7 +14,6 @@ export const UpdateOne = async (req: Request, res: Response) => {
         Attempts,
         IsPublic,
         IsDeleted,
-        IsVerified,
         UserVerify,
         VerifiedAt,
     } = req.body;
@@ -32,7 +31,6 @@ export const UpdateOne = async (req: Request, res: Response) => {
             Attempts = ?, 
             IsPublic = ?, 
             IsDeleted = ?, 
-            IsVerified = ?,
             UserVerify = ?;
             VerifiedAt = ?;
         WHERE 
@@ -45,7 +43,6 @@ export const UpdateOne = async (req: Request, res: Response) => {
         Attempts,
         IsPublic,
         IsDeleted,
-        IsVerified,
         UserVerify,
         VerifiedAt,
         QuizInformationId,

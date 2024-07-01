@@ -48,7 +48,6 @@ export const CreateOne = async (req: Request, res: Response) => {
                 Attempts,
                 IsPublic,
                 IsDeleted,
-                IsVerified,
                 UserVerify,
                 VerifiedAt
             ) VALUES (?, ?, ?, ?, 0, ?, false, false, NULL, NULL);`;

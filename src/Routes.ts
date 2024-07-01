@@ -11,9 +11,6 @@ import { SubSubjectRouter } from "./SubSubject/route";
 import { TypeRouter } from "./Type/route";
 import { PointRouter } from "./Point/route";
 import { UploadFileRouter } from "./UploadFile/UploadFile";
-// import { AnswerRouter } from "./Answer/route";
-// import { QuestionRouter } from "./Question/route";
-// import { QuestionInformationRouter } from "./QuestionInformation/route";
 import { UserRouter } from "./User/route";
 import { QuizRouter } from "./Quiz/route";
 import { QuizInformationRouter } from "./QuizInformation/route";
@@ -40,6 +37,7 @@ import { RankingRouter } from "./Raking/route";
 import { LikeRouter } from "./Like/route";
 import { RatingRouter } from "./Rating/route";
 import { UserRoleRouter } from "./UserRole/route";
+import { ModeratorRouter } from "./Moderator/route";
 
 export const RouteObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -80,4 +78,5 @@ export const RouteObjects = [
     { path: "/Like", router: LikeRouter },
     { path: "/Rating", router: RatingRouter },
     { path: "/UserRole", router: UserRoleRouter },
+    { path: "/Moderator", router: ModeratorRouter },
 ];
