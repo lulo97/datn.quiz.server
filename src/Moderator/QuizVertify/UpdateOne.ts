@@ -7,12 +7,13 @@ import { formatVietnameseDatetime } from "../../Utils";
 
 function sql(
     QuizInformationId: string,
-    UserVertify: string | null,
-    dateVerifiedAt: string | null
+    UserVertify: string,
+    dateVerifiedAt: string
 ) {
     return `UPDATE quizinformation 
-            SET UserVertify = CASE WHEN UserVertify IS NOT NULL THEN NULL ELSE ${UserVertify ? `'${UserVertify}'` : "NULL"} END, 
-                VerifiedAt = CASE WHEN VerifiedAt IS NOT NULL THEN NULL ELSE ${dateVerifiedAt ? `'${dateVerifiedAt}'` : "NULL"} END 
+            SET 
+                UserVertify = '${UserVertify}', 
+                VerifiedAt = '${dateVerifiedAt}' 
             WHERE QuizInformationId = '${QuizInformationId}'`;
 }
 
@@ -22,9 +23,7 @@ export const UpdateOne = async (req: Request, res: Response) => {
         return res.status(Code.BadRequest).json(FieldNull);
     }
     try {
-        const dateVerifiedAt = VerifiedAt
-            ? formatVietnameseDatetime(VerifiedAt / 1000)
-            : null;
+        const dateVerifiedAt = formatVietnameseDatetime(VerifiedAt / 1000);
         const sql_query = sql(QuizInformationId, UserVertify, dateVerifiedAt);
         const [result] = await pool.query<ResultSetHeader>(sql_query);
         if (result.affectedRows === 0) {

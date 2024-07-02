@@ -38,6 +38,7 @@ import { LikeRouter } from "./Like/route";
 import { RatingRouter } from "./Rating/route";
 import { UserRoleRouter } from "./UserRole/route";
 import { ModeratorRouter } from "./Moderator/route";
+import { ReportRouter } from "./Report/route";
 
 export const RouteObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -79,4 +80,5 @@ export const RouteObjects = [
     { path: "/Rating", router: RatingRouter },
     { path: "/UserRole", router: UserRoleRouter },
     { path: "/Moderator", router: ModeratorRouter },
+    { path: "/Report", router: ReportRouter },
 ];
