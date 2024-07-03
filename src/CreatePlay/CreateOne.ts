@@ -1,14 +1,17 @@
 import { Request, Response } from "express";
 import { pool } from "../Connect";
 import { ResultSetHeader } from "mysql2/promise";
-import { CatchError, Create, FieldNull } from "../MyResponse";
+import { CatchError, Create } from "../MyResponse";
 import { Code } from "../Code";
-import { TABLE as PlayTable } from "../Play/route";
-import { TABLE as SelectedAnswerTable } from "../SelectedAnswer/route";
 import { formatVietnameseDatetime } from "../Utils";
 
+const PlayTable = "Play";
+const SelectedAnswerTable = "SelectedAnswer";
+const QuizInformationTable = "QuizInformation";
+const QuestionInformationTable = "QuestionInformation"
+
 export const CreateOne = async (req: Request, res: Response) => {
-    const { PlayRecordInsert, SelectedAnswersInsert } = req.body;
+    const { PlayRecordInsert, SelectedAnswersInsert, MetricUserCount } = req.body;
     const connection = await pool.getConnection();
     try {
         await connection.beginTransaction();
@@ -38,6 +41,36 @@ export const CreateOne = async (req: Request, res: Response) => {
             const answerSql = `INSERT INTO ${SelectedAnswerTable} (PlayId, AnswerId) VALUES (?, ?)`;
             const answerParams = [answer.PlayId, answer.AnswerId];
             await connection.query<ResultSetHeader>(answerSql, answerParams);
+        }
+
+        // Update the attempts in QuizInformation
+        const quizInfoSql = `
+            UPDATE ${QuizInformationTable}
+            SET Attempts = Attempts + 1
+            WHERE QuizInformationId = (
+                SELECT QuizInformationId
+                FROM ${PlayTable}
+                WHERE PlayId = ?
+            )
+        `;
+        await connection.query<ResultSetHeader>(quizInfoSql, [PlayId]);
+
+        // Update CorrectUserCount and IncorrectUserCount for each QuestionInformation
+        for (const metric of MetricUserCount) {
+            const { QuestionId, CorrectUserCount, IncorrectUserCount } = metric;
+
+            const questionInfoSql = `
+                UPDATE ${QuestionInformationTable} qi
+                JOIN Question q ON qi.QuestionInformationId = q.QuestionInformationId
+                SET qi.CorrectUserCount = qi.CorrectUserCount + ?,
+                    qi.IncorrectUserCount = qi.IncorrectUserCount + ?
+                WHERE q.QuestionId = ?
+            `;
+            await connection.query<ResultSetHeader>(questionInfoSql, [
+                CorrectUserCount,
+                IncorrectUserCount,
+                QuestionId,
+            ]);
         }
 
         await connection.commit();

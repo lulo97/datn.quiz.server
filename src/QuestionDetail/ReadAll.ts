@@ -11,8 +11,8 @@ function sql() {
 export const ReadAll = async (req: Request, res: Response) => {
     try {
         const [rows, fields] = await pool.query<MySQLFunctionReturn[]>(sql());
-        if (rows.length === 0) {
-            return res.status(Code.NotFound).json(NotFound);
+        if (rows[0].data == null) {
+            return res.status(Code.OK).json([]);
         }
         if (rows[0].data == null) {
             return res.status(Code.OK).json([]);

@@ -1,11 +1,8 @@
-import express from 'express';
-import { ReadAll } from './ReadAll';
-import { ReadOne } from './ReadOne';
-import { UpdateOne } from './UpdateOne';
+import express from "express";
+import { CreateOne } from "./CreateOne";
+import { DeleteOne } from "./DeleteOne";
 
-export const TABLE = "Quiz"
 export const QuizRouter = express.Router();
 
-QuizRouter.get('/', ReadAll);
-QuizRouter.get('/:QuizId', ReadOne);
-QuizRouter.put('/', UpdateOne);
+QuizRouter.post("/", CreateOne);
+QuizRouter.delete("/", DeleteOne);

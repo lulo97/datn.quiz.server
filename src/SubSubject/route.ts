@@ -10,7 +10,7 @@ import { ReadBySubject } from "./ReadBySubject";
 export const TABLE = "SubSubject";
 export const SubSubjectRouter = express.Router();
 
-SubSubjectRouter.get("/", ReadAll);
+SubSubjectRouter.get("/:field/:sort/:subjectFilter/:educationFilter", ReadAll);
 SubSubjectRouter.get("/:SubSubjectId", ReadOne);
 SubSubjectRouter.get(
     "/GetBySubjectAndEducationLevel/:SubjectId/:EducationLevelId",

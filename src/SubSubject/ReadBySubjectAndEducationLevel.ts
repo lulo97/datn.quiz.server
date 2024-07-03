@@ -29,7 +29,6 @@ export const ReadBySubjectAndEducationLevel = async (
         return res.status(Code.BadRequest).json(FieldNull);
     }
     try {
-        console.log(sql(SubjectId, EducationLevelId));
         const [rows] = await pool.query<SubSubject[]>(
             sql(SubjectId, EducationLevelId)
         );

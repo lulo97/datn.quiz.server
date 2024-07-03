@@ -18,7 +18,7 @@ export interface QuizDetail extends RowDataPacket {
     //
     Attempts: number;
     IsDeleted: boolean;
-    UserVerify: string | null;
+    UserVertify: string | null;
     VerifiedAt: string | null;
     CreatedAt: string | null;
     UpdatedAt: string | null;

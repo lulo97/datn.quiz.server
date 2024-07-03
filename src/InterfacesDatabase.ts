@@ -275,7 +275,7 @@ export interface Report extends RowDataPacket {
     ParentId: string;
     Content: string;
     CreatedAt: string;
-    IsResolved: boolean;
+    ResolvedAt: string;
     UserResolve: string;
 }
 

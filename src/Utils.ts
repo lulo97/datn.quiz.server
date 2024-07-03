@@ -14,3 +14,5 @@ export function formatVietnameseDatetime(timestamp: number) {
     // Combine to the desired format
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
+
+export const TONG_HOP = "Tổng hợp"

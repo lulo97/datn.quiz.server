@@ -12,26 +12,17 @@ import { TypeRouter } from "./Type/route";
 import { PointRouter } from "./Point/route";
 import { UploadFileRouter } from "./UploadFile/UploadFile";
 import { UserRouter } from "./User/route";
-import { QuizRouter } from "./Quiz/route";
-import { QuizInformationRouter } from "./QuizInformation/route";
-import { QuizQuestionRouter } from "./QuizQuestion/route";
 import { TimeRouter } from "./Time/route";
 import { QuestionDetailRouter } from "./QuestionDetail/route";
 import { QuizDetailRouter } from "./QuizDetail/route";
-import { PlayRouter } from "./Play/route";
-import { SelectedAnswerRouter } from "./SelectedAnswer/route";
 import { PlayDetailRouter } from "./PlayDetail/route";
 import { CommentDetailRouter } from "./CommentDetail/route";
 import { CommentRouter } from "./Comment/route";
 import { UpvoteCommentRouter } from "./UpvoteComment/route";
 import { DownvoteCommentRouter } from "./Downvotecomment/route";
 import { RoomRouter } from "./Room/route";
-// import { setupSocketIO } from "./RoomSocket/RoomSocket";
 import { RoomDetailRouter } from "./RoomDetail/route";
-import { CreateQuestionRouter } from "./CreateQuestion/route";
 import { AdminRouter } from "./Admin/route";
-import { CreateQuizRouter } from "./CreateQuiz/route";
-import { UpdateQuestionRouter } from "./UpdateQuestion/route";
 import { CreatePlayRouter } from "./CreatePlay/route";
 import { RankingRouter } from "./Raking/route";
 import { LikeRouter } from "./Like/route";
@@ -39,6 +30,9 @@ import { RatingRouter } from "./Rating/route";
 import { UserRoleRouter } from "./UserRole/route";
 import { ModeratorRouter } from "./Moderator/route";
 import { ReportRouter } from "./Report/route";
+import { ReportDetailRouter } from "./ReportDetail/route";
+import { QuestionRouter } from "./Question/route";
+import { QuizRouter } from "./Quiz/route";
 
 export const RouteObjects = [
     { path: "/Upload", router: UploadFileRouter },
@@ -56,13 +50,8 @@ export const RouteObjects = [
     { path: "/Point", router: PointRouter },
     { path: "/User", router: UserRouter },
     { path: "/QuestionDetail", router: QuestionDetailRouter },
-    { path: "/Quiz", router: QuizRouter },
-    { path: "/QuizInformation", router: QuizInformationRouter },
-    { path: "/QuizQuestion", router: QuizQuestionRouter },
     { path: "/Time", router: TimeRouter },
     { path: "/QuizDetail", router: QuizDetailRouter },
-    { path: "/Play", router: PlayRouter },
-    { path: "/SelectedAnswer", router: SelectedAnswerRouter },
     { path: "/PlayDetail", router: PlayDetailRouter },
     { path: "/CommentDetail", router: CommentDetailRouter },
     { path: "/Comment", router: CommentRouter },
@@ -70,10 +59,7 @@ export const RouteObjects = [
     { path: "/DownvoteComment", router: DownvoteCommentRouter },
     { path: "/Room", router: RoomRouter },
     { path: "/RoomDetail", router: RoomDetailRouter },
-    { path: "/CreateQuestion", router: CreateQuestionRouter },
-    { path: "/UpdateQuestion", router: UpdateQuestionRouter },
     { path: "/Admin", router: AdminRouter },
-    { path: "/CreateQuiz", router: CreateQuizRouter },
     { path: "/CreatePlay", router: CreatePlayRouter },
     { path: "/Ranking", router: RankingRouter },
     { path: "/Like", router: LikeRouter },
@@ -81,4 +67,7 @@ export const RouteObjects = [
     { path: "/UserRole", router: UserRoleRouter },
     { path: "/Moderator", router: ModeratorRouter },
     { path: "/Report", router: ReportRouter },
+    { path: "/ReportDetail", router: ReportDetailRouter },
+    { path: "/Question", router: QuestionRouter },
+    { path: "/Quiz", router: QuizRouter },
 ];

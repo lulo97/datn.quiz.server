@@ -1,12 +1,14 @@
-import express from 'express';
-import { ReadAll } from './ReadAll';
-import { ReadOne } from './ReadOne';
-import { UpdateOne } from './UpdateOne';
+import express from "express";
+import { UpdateOne } from "./UpdateOne";
+import { CreateOne } from "./CreateOne";
+import { DeleteOne } from "./DeleteOne";
 
-export const TABLE = "Question"
+export const QuestionTable = "Question"
+export const QuestionInfoTable = "QuestionInformation"
+export const AnswerTable = "Answer"
+
 export const QuestionRouter = express.Router();
 
-QuestionRouter.get('/', ReadAll);
-QuestionRouter.get('/:QuestionId', ReadOne);
-
-QuestionRouter.put('/', UpdateOne);
+QuestionRouter.post("/", CreateOne);
+QuestionRouter.put("/", UpdateOne);
+QuestionRouter.delete("/", DeleteOne);

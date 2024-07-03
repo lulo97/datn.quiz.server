@@ -2,10 +2,10 @@ import { Request, Response } from "express";
 import { pool } from "../Connect";
 import { Code } from "../Code";
 import { CatchError, NotFound } from "../MyResponse";
-import { MySQLFunctionReturn, QuizDetail } from "./Utils";
+import { MySQLFunctionReturn } from "./Utils";
 
 function sql() {
-    return `SELECT getAllQuizDetail() as data;`;
+    return `select getAllReportDetail() as data;`;
 }
 
 export const ReadAll = async (req: Request, res: Response) => {
@@ -16,6 +16,7 @@ export const ReadAll = async (req: Request, res: Response) => {
         }
         return res.status(Code.OK).json(rows[0].data);
     } catch (error) {
+        console.error(error);
         console.log(error);
         return res.status(Code.InternalServerError).json(CatchError(error));
     }
